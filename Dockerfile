@@ -1,4 +1,4 @@
-FROM node:18 as builder
+FROM node:18 AS builder
 
 WORKDIR /usr/src/app
 
@@ -18,8 +18,8 @@ RUN npm run build
 FROM nginx:alpine
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
 
-EXPOSE 80
-CMD [ "nginx", "-g", "daemon off;" ]
+EXPOSE 8080
+CMD [ "nginx", "-g", "daemon off;" ]   
 
 
-# https://api.demo.lebondeveloppeur.net/
+# https://apiback.21.lebondeveloppeur.net/
